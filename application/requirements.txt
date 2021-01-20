@@ -1,0 +1,4 @@
+numpy
+--pre -U scikit-learn
+matplotlib
+pandas

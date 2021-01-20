@@ -1,0 +1,3 @@
+- finalizar scripts
+- finalizar slide
+- github e readme
