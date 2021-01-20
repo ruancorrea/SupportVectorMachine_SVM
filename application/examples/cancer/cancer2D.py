@@ -1,4 +1,4 @@
-from sklearn.datasets import load_breast_cancer ## dados de pacientes com ou sem cancer de pulmao.
+from sklearn.datasets import load_breast_cancer ## dados de pacientes com ou sem cancer de mama.
 from sklearn.model_selection import train_test_split ## modelo de seleçao para quebra de dados
 from sklearn.metrics import classification_report, confusion_matrix ## usados para avaliar modelos de classificação
 from sklearn.svm import SVC ## classe do modelo SVM, onde é importado o SVC que significa Support Vector Classification
@@ -15,7 +15,6 @@ df_cancer = pd.DataFrame(cancer['data'], columns=cancer['feature_names'])
 ## print(df_cancer.head())
 
 X = X[:, :2]
-h = .02 
 
 df_target = pd.DataFrame(cancer['target'], columns=['Cancer'])
 ## print(df_target.head())
@@ -24,7 +23,7 @@ train_X, test_X, train_y, test_y = train_test_split(X, y, test_size=0.3, random_
 ## print(train_y)
 
 ## definindo o modelo de classificação SVC
-modelo = SVC(kernel='linear', C=1)
+modelo = SVC(kernel='linear', C=1) ## 
 modelo.fit(train_X[:,:2], train_y)
 
 ## avaliando modelo
@@ -35,6 +34,7 @@ print(confusion_matrix(test_y, pred))
 
 
 ## plotando gráfico
+h = .02 
 x_min, x_max = X[:, 0].min() - 1, X[:, 0].max() + 1
 y_min, y_max = X[:, 1].min() - 1, X[:, 1].max() + 1
 xx, yy = np.meshgrid(np.arange(x_min, x_max, h), np.arange(y_min, y_max, h))
